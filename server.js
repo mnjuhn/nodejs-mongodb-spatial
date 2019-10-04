@@ -135,7 +135,7 @@ app.post("/api/findEvents", function(req, res){
             errorObj['Error'] = "No such user exists! Please re-login!";
             res.send(errorObj);
           }
-          // get user's geocode location and do a geocode search on radius km from location of puser
+          // get user's geocode location and do a geocode search on radius km from location of user
           else {
             var radians = searchRadius / 6371;
             eventsModel.find({ location: { $geoWithin: { $centerSphere: [ [user.location.coordinates[0],
