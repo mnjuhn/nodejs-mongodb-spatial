@@ -1,4 +1,4 @@
-iapp.post("/api/findEvents", function(req, res){
+app.post("/api/findEvents", function(req, res){
 
   // get user id from session
   searchRadius = req.body.radius;
