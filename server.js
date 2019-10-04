@@ -1,3 +1,110 @@
+var Schema = mongo.Schema;
+
+var UsersSchema = new Schema({
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+    trim: true
+  },
+  password: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  resetPasswordToken: {
+    type: String,
+    trim: true
+  },
+  resetPasswordExpires: {
+    type: Number
+  },
+  firstname: {
+    type: String,
+    required: true
+  },
+  lastname: {
+    type: String,
+    required: true
+  },
+  countryType: {
+    type: String,
+    required: true
+  },
+  state: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: true
+  },
+  location: {
+    type: {
+      type:String
+    },
+    coordinates: [Number, Number]
+  },
+  hobbies: {
+    type: String
+  },
+  sessionID: {
+    type: String
+  }
+},{ versionKey: false });
+
+var SessSchema = new Schema({
+  userID: {
+    type: String,
+    required: true
+  },
+});
+
+var EventSchema = new Schema({
+  userID: {
+    type: String,
+    required: true
+  },
+  title: {
+    type:String,
+    required: true
+  },
+  startDate: {
+    type: String,
+    required: true
+  },
+  endDate: {
+    type: String,
+    required: true
+  },
+  countryType: {
+    type: String,
+    required: true
+  },
+  state: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: true
+  },
+  location: {
+    type: {
+      type:String
+    },
+    coordinates: [Number, Number]
+  }
+});
+
 app.post("/api/findEvents", function(req, res){
 
   // get user id from session
